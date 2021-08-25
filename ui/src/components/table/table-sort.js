@@ -49,7 +49,7 @@ export function useTableSort (props, computedPagination, colList, setPagination)
               return 1 * dir
             }
             if (col.sort !== void 0) {
-              return col.sort(A, B, a, b) * dir
+              return col.sort(A, B, a, b, dir) * dir
             }
             if (isNumber(A) === true && isNumber(B) === true) {
               return (A - B) * dir
