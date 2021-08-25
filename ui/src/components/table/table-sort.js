@@ -42,14 +42,14 @@ export function useTableSort (props, computedPagination, colList, setPagination)
               A = val(a),
               B = val(b)
 
+            if (col.sort !== void 0) {
+              return col.sort(A, B, a, b, dir) * dir
+            }
             if (A === null || A === void 0) {
               return -1 * dir
             }
             if (B === null || B === void 0) {
               return 1 * dir
-            }
-            if (col.sort !== void 0) {
-              return col.sort(A, B, a, b, dir) * dir
             }
             if (isNumber(A) === true && isNumber(B) === true) {
               return (A - B) * dir
